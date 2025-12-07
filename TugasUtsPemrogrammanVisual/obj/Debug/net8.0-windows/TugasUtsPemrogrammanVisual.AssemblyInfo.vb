@@ -16,7 +16,7 @@ Imports System.Reflection
 <Assembly: System.Reflection.AssemblyCompanyAttribute("TugasUtsPemrogrammanVisual"),  _
  Assembly: System.Reflection.AssemblyConfigurationAttribute("Debug"),  _
  Assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0"),  _
- Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0"),  _
+ Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+714e25120f2042439d25ee28a5fd2a99332de7ef"),  _
  Assembly: System.Reflection.AssemblyProductAttribute("TugasUtsPemrogrammanVisual"),  _
  Assembly: System.Reflection.AssemblyTitleAttribute("TugasUtsPemrogrammanVisual"),  _
  Assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0"),  _

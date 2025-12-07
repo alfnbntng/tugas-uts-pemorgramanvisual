@@ -71,6 +71,11 @@ Public Class Form1
         End If
 
         Using dlg As New Form2(kode)
+            If Not dlg.LoadSucceeded Then
+                MessageBox.Show("Tidak dapat membuka form edit: " & dlg.LoadErrorMessage, "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Return
+            End If
+
             If dlg.ShowDialog(Me) = DialogResult.OK Then
                 load_data()
                 For Each r As DataGridViewRow In DataGridView1.Rows

@@ -34,6 +34,9 @@ Public Class Form2
     Private isEditMode As Boolean = False
     Private originalKode As String = Nothing
 
+    Public Property LoadSucceeded As Boolean = True
+    Public Property LoadErrorMessage As String = String.Empty
+
     Public ReadOnly Property ResultingKode As String
         Get
             Return If(txtKode IsNot Nothing, txtKode.Text.Trim(), String.Empty)
@@ -143,6 +146,7 @@ Public Class Form2
         Dim enumValues = [Enum].GetValues(GetType(JenisAset))
         If enumValues IsNot Nothing AndAlso enumValues.Length > 0 Then
             comboJenis.DataSource = enumValues
+            ' pilih default "Tanah" kalau ada; jika tidak, pilih index 0 tetapi hanya jika ada item
             Dim defaultItem As Object = Nothing
             For Each v In enumValues
                 If v.ToString() = "Tanah" Then
@@ -150,9 +154,10 @@ Public Class Form2
                     Exit For
                 End If
             Next
+
             If defaultItem IsNot Nothing Then
                 comboJenis.SelectedItem = defaultItem
-            Else
+            ElseIf comboJenis.Items.Count > 0 Then
                 comboJenis.SelectedIndex = 0
             End If
         Else
@@ -256,9 +261,13 @@ Public Class Form2
 
                             Dim parsedJenis As JenisAset
                             If [Enum].TryParse(Of JenisAset)(jenStr, True, parsedJenis) Then
-                                comboJenis.SelectedItem = parsedJenis
+                                If comboJenis.Items.Count > 0 Then
+                                    comboJenis.SelectedItem = parsedJenis
+                                End If
                             Else
-                                comboJenis.SelectedIndex = 0
+                                If comboJenis.Items.Count > 0 Then
+                                    comboJenis.SelectedIndex = 0
+                                End If
                             End If
 
                             Dim raw = rdr.Item("tanggalperolehan")
@@ -309,19 +318,19 @@ Public Class Form2
                                     datePicker.Value = dateValue.Date
                                 End If
                             End If
-
+                            LoadSucceeded = True
+                            Return
                         Else
-                            MessageBox.Show("Data tidak ditemukan untuk editing.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                            Me.DialogResult = DialogResult.Cancel
-                            Me.Close()
+                            LoadSucceeded = False
+                            LoadErrorMessage = "Data tidak ditemukan untuk editing."
+                            Return
                         End If
                     End Using
                 End Using
             End Using
         Catch ex As Exception
-            MessageBox.Show("Gagal memuat data: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Me.DialogResult = DialogResult.Cancel
-            Me.Close()
+            LoadSucceeded = False
+            LoadErrorMessage = "Gagal memuat data: " & ex.Message
         End Try
     End Sub
 

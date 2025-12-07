@@ -20,3 +20,4 @@ D:\Kuliah\Mapel\Pemrogramman Visual\Belajar\TugasUtsPemrogrammanVisual\TugasUtsP
 D:\Kuliah\Mapel\Pemrogramman Visual\Belajar\TugasUtsPemrogrammanVisual\TugasUtsPemrogrammanVisual\obj\Debug\net8.0-windows\TugasUtsPemrogrammanVisual.pdb
 D:\Kuliah\Mapel\Pemrogramman Visual\Belajar\TugasUtsPemrogrammanVisual\TugasUtsPemrogrammanVisual\obj\Debug\net8.0-windows\TugasUtsPemrogrammanVisual.genruntimeconfig.cache
 D:\Kuliah\Mapel\Pemrogramman Visual\Belajar\TugasUtsPemrogrammanVisual\TugasUtsPemrogrammanVisual\obj\Debug\net8.0-windows\ref\TugasUtsPemrogrammanVisual.dll
+D:\Kuliah\Mapel\Pemrogramman Visual\Belajar\TugasUtsPemrogrammanVisual\TugasUtsPemrogrammanVisual\obj\Debug\net8.0-windows\TugasUtsPemrogrammanVisual.sourcelink.json
